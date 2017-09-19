@@ -1,0 +1,115 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+var _jsxFileName = '/home/desmond/ReactNativeProjects/FsktmApp/CoursePlanningView.js';
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var _axios = require('axios');
+
+var _axios2 = babelHelpers.interopRequireDefault(_axios);
+
+var _LecturerResults = require('./LecturerResults');
+
+var _LecturerResults2 = babelHelpers.interopRequireDefault(_LecturerResults);
+
+var _CoursePlanningLinks = require('./CoursePlanningLinks');
+
+var _CoursePlanningLinks2 = babelHelpers.interopRequireDefault(_CoursePlanningLinks);
+
+var PeopleView = function (_React$Component) {
+  babelHelpers.inherits(PeopleView, _React$Component);
+
+  function PeopleView() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    babelHelpers.classCallCheck(this, PeopleView);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = babelHelpers.possibleConstructorReturn(this, (_ref = PeopleView.__proto__ || Object.getPrototypeOf(PeopleView)).call.apply(_ref, [this].concat(args))), _this), _this._renderSessions = function () {
+      return _CoursePlanningLinks2.default.map(function (session, index) {
+        return _react2.default.createElement(
+          _reactNative.View,
+          { key: index, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 20
+            }
+          },
+          _react2.default.createElement(
+            _reactNative.Text,
+            { style: styles.sessionText, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 21
+              }
+            },
+            session['session']
+          ),
+          _this._renderCourses(session['courses'])
+        );
+      });
+    }, _this._renderCourses = function (courses) {
+      return courses.map(function (_ref2, index) {
+        var course = _ref2.course,
+            link = _ref2.link;
+
+        return _react2.default.createElement(
+          _reactNative.View,
+          { style: styles.buttonPadding, key: index, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 30
+            }
+          },
+          _react2.default.createElement(_reactNative.Button, {
+            onPress: function onPress() {
+              _reactNative.Linking.openURL(link);
+            },
+            title: course,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 31
+            }
+          })
+        );
+      });
+    }, _temp), babelHelpers.possibleConstructorReturn(_this, _ret);
+  }
+
+  babelHelpers.createClass(PeopleView, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _reactNative.View,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 42
+          }
+        },
+        this._renderSessions()
+      );
+    }
+  }]);
+  return PeopleView;
+}(_react2.default.Component);
+
+exports.default = PeopleView;
+
+
+var styles = _reactNative.StyleSheet.create({
+  sessionText: {
+    fontWeight: 'bold'
+  },
+  buttonPadding: {
+    padding: 10
+  }
+});

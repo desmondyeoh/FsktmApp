@@ -1,0 +1,131 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _class,
+    _temp2,
+    _jsxFileName = '/home/desmond/ReactNativeProjects/FsktmApp/Router.js';
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var _vectorIcons = require('@expo/vector-icons');
+
+var _reactNativeTabView = require('react-native-tab-view');
+
+var _SimplePage = require('./SimplePage');
+
+var _SimplePage2 = babelHelpers.interopRequireDefault(_SimplePage);
+
+var TopBarIconExample = (_temp2 = _class = function (_PureComponent) {
+  babelHelpers.inherits(TopBarIconExample, _PureComponent);
+
+  function TopBarIconExample() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    babelHelpers.classCallCheck(this, TopBarIconExample);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = babelHelpers.possibleConstructorReturn(this, (_ref = TopBarIconExample.__proto__ || Object.getPrototypeOf(TopBarIconExample)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      index: 0,
+      routes: [{ key: '1', icon: 'md-restaurant' }, { key: '2', icon: 'md-bicycle' }, { key: '3', icon: 'md-color-palette' }]
+    }, _this._handleIndexChange = function (index) {
+      _this.setState({
+        index: index
+      });
+    }, _this._renderIcon = function (_ref2) {
+      var route = _ref2.route;
+
+      return _react2.default.createElement(_vectorIcons.Ionicons, { name: route.icon, size: 24, color: 'white', __source: {
+          fileName: _jsxFileName,
+          lineNumber: 36
+        }
+      });
+    }, _this._renderHeader = function (props) {
+      return _react2.default.createElement(_reactNativeTabView.TabBar, babelHelpers.extends({}, props, {
+        indicatorStyle: styles.indicator,
+        renderIcon: _this._renderIcon,
+        style: styles.tabbar,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 41
+        }
+      }));
+    }, _this._renderScene = function (_ref3) {
+      var route = _ref3.route;
+
+      switch (route.key) {
+        case '1':
+          return _react2.default.createElement(_SimplePage2.default, {
+            state: _this.state,
+            style: { backgroundColor: '#ff4081' },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 54
+            }
+          });
+        case '2':
+          return _react2.default.createElement(_SimplePage2.default, {
+            state: _this.state,
+            style: { backgroundColor: '#673ab7' },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 61
+            }
+          });
+        case '3':
+          return _react2.default.createElement(_SimplePage2.default, {
+            state: _this.state,
+            style: { backgroundColor: '#4caf50' },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 68
+            }
+          });
+        default:
+          return null;
+      }
+    }, _temp), babelHelpers.possibleConstructorReturn(_this, _ret);
+  }
+
+  babelHelpers.createClass(TopBarIconExample, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(_reactNativeTabView.TabViewAnimated, {
+        style: [styles.container, this.props.style],
+        navigationState: this.state,
+        renderScene: this._renderScene,
+        renderHeader: this._renderHeader,
+        onIndexChange: this._handleIndexChange,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 80
+        }
+      });
+    }
+  }]);
+  return TopBarIconExample;
+}(_react.PureComponent), _class.title = 'Icon only top bar', _class.appbarElevation = 0, _temp2);
+exports.default = TopBarIconExample;
+
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    flex: 1
+  },
+  tabbar: {
+    backgroundColor: '#222'
+  },
+  indicator: {
+    backgroundColor: '#ffeb3b'
+  }
+});

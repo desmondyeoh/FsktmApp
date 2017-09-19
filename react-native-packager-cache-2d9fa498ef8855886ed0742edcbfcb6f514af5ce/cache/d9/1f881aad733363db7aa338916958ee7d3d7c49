@@ -1,0 +1,43 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+var _jsxFileName = '/home/desmond/ReactNativeProjects/FsktmApp/NotificationView.js';
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var _Notification = require('./Notification');
+
+var _Notification2 = babelHelpers.interopRequireDefault(_Notification);
+
+var NotificationView = function (_React$Component) {
+  babelHelpers.inherits(NotificationView, _React$Component);
+
+  function NotificationView() {
+    babelHelpers.classCallCheck(this, NotificationView);
+    return babelHelpers.possibleConstructorReturn(this, (NotificationView.__proto__ || Object.getPrototypeOf(NotificationView)).apply(this, arguments));
+  }
+
+  babelHelpers.createClass(NotificationView, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(_Notification2.default, {
+        title: 'Undergraduates: Please be on time to class',
+        body: 'Attendance will be counted in finals',
+        datetime: '8.00am 17 July 2017',
+        author: 'admin',
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 14
+        }
+      });
+    }
+  }]);
+  return NotificationView;
+}(_react2.default.Component);
+
+exports.default = NotificationView;

@@ -1,0 +1,111 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+var _jsxFileName = '/home/desmond/ReactNativeProjects/FsktmApp/ExpoThreeExampleView.js';
+
+var _expo = require('expo');
+
+var _expo2 = babelHelpers.interopRequireDefault(_expo);
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var _three = require('three');
+
+var THREE = babelHelpers.interopRequireWildcard(_three);
+
+var _expoThree = require('expo-three');
+
+var _expoThree2 = babelHelpers.interopRequireDefault(_expoThree);
+
+var regeneratorRuntime = require('regenerator-runtime');
+
+var ExpoThreeExampleView = function (_React$Component) {
+  babelHelpers.inherits(ExpoThreeExampleView, _React$Component);
+
+  function ExpoThreeExampleView() {
+    var _ref,
+        _this2 = this;
+
+    var _temp, _this, _ret;
+
+    babelHelpers.classCallCheck(this, ExpoThreeExampleView);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = babelHelpers.possibleConstructorReturn(this, (_ref = ExpoThreeExampleView.__proto__ || Object.getPrototypeOf(ExpoThreeExampleView)).call.apply(_ref, [this].concat(args))), _this), _this._onGLContextCreate = function _callee(gl) {
+      var scene, camera, renderer, geometry, material, cube, render;
+      return regeneratorRuntime.async(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              scene = new THREE.Scene();
+              camera = new THREE.PerspectiveCamera(75, gl.drawingBufferWidth / gl.drawingBufferHeight, 0.1, 1000);
+              renderer = _expoThree2.default.createRenderer({ gl: gl });
+
+              renderer.setSize(gl.drawingBufferWidth, gl.drawingBufferHeight);
+
+              geometry = new THREE.BoxGeometry(1, 1, 1);
+              _context.t0 = THREE.MeshBasicMaterial;
+              _context.next = 8;
+              return regeneratorRuntime.awrap(_expoThree2.default.createTextureAsync({
+                asset: _expo2.default.Asset.fromModule(require('./assets/icons/app-icon.png'))
+              }));
+
+            case 8:
+              _context.t1 = _context.sent;
+              _context.t2 = {
+                map: _context.t1
+              };
+              material = new _context.t0(_context.t2);
+              cube = new THREE.Mesh(geometry, material);
+
+              scene.add(cube);
+
+              camera.position.z = 5;
+
+              render = function render() {
+                requestAnimationFrame(render);
+
+                cube.rotation.x += 0.07;
+                cube.rotation.y += 0.04;
+
+                renderer.render(scene, camera);
+
+                gl.endFrameEXP();
+              };
+
+              render();
+
+            case 16:
+            case 'end':
+              return _context.stop();
+          }
+        }
+      }, null, _this2);
+    }, _temp), babelHelpers.possibleConstructorReturn(_this, _ret);
+  }
+
+  babelHelpers.createClass(ExpoThreeExampleView, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(_expo2.default.GLView, {
+        style: { flex: 1 },
+        onContextCreate: this._onGLContextCreate,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 13
+        }
+      });
+    }
+  }]);
+  return ExpoThreeExampleView;
+}(_react2.default.Component);
+
+exports.default = ExpoThreeExampleView;
